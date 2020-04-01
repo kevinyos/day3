@@ -3,8 +3,8 @@ const app = express();
 const port = 2000;
 const bodyParser = require('body-parser');
 // app.use(bodyParser())
-// app.use(express.urlencoded({extended: true})); 
-// app.use(express.json()); 
+app.use(express.urlencoded({extended: true})); 
+app.use(express.json()); 
 
 
 app.get('/',(req,res)=>{
@@ -38,7 +38,7 @@ app.delete('/',(req,res)=>{
 // Router => simpan semua alamat => URL dan Method
 // Controller = > function yang dijalankan ketika url endpoint di akses
 
-// const { userRouter } = require('./router')
-// app.use('/users', userRouter)
+const { userRouter } = require('./router')
+app.use('/users', userRouter)
 
 app.listen(port,()=>console.log(`API active at port ${port}`))
